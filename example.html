@@ -89,8 +89,9 @@ td{
 <div id="wrap">
 	<div id="main">
 		<h1>NFAL Fixed to top  - jQuery Plugin</h1>
-		<p>よくあるサイドメニューがスクロールに付いてくる奴です。</p>
-		<p>対象のエレメントに、スクロール中は&quot;.f2t_scrolling&quot;、下端までスクロールした時は&quot;.f2t_bottomEnd&quot;のクラスを追加します。</p>
+		<p>よくあるサイドメニューがスクロールに追従する奴です。</p>
+		<p>対象のエレメントに、スクロール中は&quot;.f2t_scrolling&quot;、下端までスクロールした時は&quot;.f2t_bottomEnd&quot;のクラスを追加します。<br />
+		追従自体はCSSのpostion:fixedなどで行うだけですので、設置するのは少々面倒かもしれません。</p>
 
 <pre>$('#menu').fixed2top();</pre>
 <p>フッターにかぶらないようにする場合</p>
