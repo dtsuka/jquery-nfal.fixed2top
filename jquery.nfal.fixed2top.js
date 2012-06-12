@@ -4,14 +4,14 @@
  * Copyright 2012, Near Future Arts Lab Co.,Ltd.
  * Released under the MIT License.
  *
- * Version: 1.0.0 (21/05/2012)
+ * Version: 1.0.1 (12/06/2012)
  */
 (function ($) {
 	$.fn.fixed2top = function(options) {
 		var opts = $.extend({}, $.fn.fixed2top.defaults, options);
-		var debug = function(str){
-			if(opts.debugmode)console.log(str);
-		}
+		var debug = function (str) {
+            if (opts.debugmode)console.log(str);
+		};
 				
 		return this.each(function () {
 			var $this			= $(this),
@@ -35,7 +35,7 @@
 				adjust();
 			});
 			function adjust(){
-				if($window.scrollTop() < offsetTop /*|| $window.height() < $this.outerHeight(true)-80*/){
+				if($window.scrollTop() < offsetTop){
 					debug('#A static');
 					$this.removeClass(fixedClass).removeClass(absoluteClass);
 				}else if($document.height() - $window.scrollTop() -paddingBottom < $this.outerHeight(true)){
