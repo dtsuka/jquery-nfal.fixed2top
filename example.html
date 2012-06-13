@@ -37,12 +37,17 @@ pre{
 table{
 	border-collapse:collapse;
 }
-th,
-td{
+th,td{
 	border: 1px solid #666;
 	background:#DDEEF0;
 	padding: 7px;
 	font-size:12px;
+}
+#footer{
+    clear:both;
+    margin-top:20px;
+    padding: 20px;
+    background: #CCC;
 }
 #side {
 	width: 280px;
@@ -53,12 +58,7 @@ td{
 #side h2{
 	text-align:center;
 }
-#footer{
-	clear:both;
-	margin-top:20px;
-	padding: 20px;
-	background: #CCC;
-}
+
 .banner {
 	text-align: center;
 	background: #69C;
@@ -76,10 +76,11 @@ td{
 
 .f2t_scrolling {
 	position: fixed;
-	top: 0px;
+	top: 0;
 	_position: static;
 }
 .f2t_bottomEnd {
+	right:0;
 	position: absolute;
 }
 </style>
@@ -89,9 +90,10 @@ td{
 <div id="wrap">
 	<div id="main">
 		<h1>NFAL Fixed to top  - jQuery Plugin</h1>
-		<p>よくあるサイドメニューがスクロールに追従する奴です。</p>
-		<p>対象のエレメントに、スクロール中は&quot;.f2t_scrolling&quot;、下端までスクロールした時は&quot;.f2t_bottomEnd&quot;のクラスを追加します。<br />
-		追従自体はCSSのpostion:fixedなどで行うだけですので、設置するのは少々面倒かもしれません。</p>
+		<p>よくあるサイドメニューをスクロールに追従させる奴です。</p>
+		<p>対象のエレメントに、スクロール中は&quot;.f2t_scrolling&quot;、下端までスクロールした時は&quot;.f2t_bottomEnd&quot;という名前のCSSクラスを追加します。</p>
+		<p>このプラグインはあくまでCSSクラスを追加するだけで、スクロールへの追従自体は上記クラスにpostion:fixedなどを記述して実装します。</p>
+        <p>プラグインの設置以前にHTMLとCSSの設計から行う必要があるため、既存のサイトに設置するのは少々面倒かもしれません。</p>
 
 <pre>$('#menu').fixed2top();</pre>
 <p>フッターにかぶらないようにする場合</p>
