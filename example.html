@@ -8,20 +8,25 @@
 <script language="JavaScript" type="text/javascript">
 jQuery(function($){
 	$('#menu').fixed2top({
-		paddingBottom:$('#footer').outerHeight(true),
+		footerTarget:'#footer',
+		liquidLayout:true,
 		debugmode:true
 	});
 });
 </script>
 <style type="text/css">
+body{
+	margin: 0;
+	padding: 0;
+}
 #wrap {
-	width: 800px;
+	width: 80%;
 	margin: 0 auto;
 	position: relative;
 }
 #main {
-	width: 460px;
-	padding: 20px;
+	width: 60%;
+	padding: 5%;
 	background: #CCDDDF;
 	float: left;
 	min-height: 800px;
@@ -50,10 +55,11 @@ th,td{
     background: #CCC;
 }
 #side {
-	width: 280px;
+	width: 20%;
 	float: right;
 	background: #CCC;
 	margin-bottom:20px;
+	position: relative;
 }
 #side h2{
 	text-align:center;
@@ -66,8 +72,7 @@ th,td{
 	margin: 0 0 20px 0;
 }
 #menu {
-	width: 240px;
-	padding: 20px;
+	width: 100%;
 	background: #E99;
 }
 #menu li{
