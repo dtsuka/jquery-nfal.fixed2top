@@ -8,9 +8,10 @@
 <script language="JavaScript" type="text/javascript">
 jQuery(function($){
 	$('#menu').fixed2top({
+		debugMode:true,
 		footerTarget:'#footer',
-		liquidLayout:true,
-		debugmode:true
+		marginBottom:20,
+		liquidLayout:true
 	});
 });
 </script>
@@ -32,6 +33,18 @@ body{
 	min-height: 800px;
 	margin-bottom:20px;
 }
+#main h1{
+	margin:0 0 40px 0;
+	padding:0;
+	text-shadow: 0 1px 1px #ffffff;
+	font: normal 55px/1 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #222;
+}
+#main h2{
+	border-top:1px dotted #FFF;
+	margin-bottom:10px;
+	padding-top:10px;
+}
 pre{
 	border:1px solid #666;
 	background:#F0F0F0;
@@ -50,7 +63,6 @@ th,td{
 }
 #footer{
     clear:both;
-    margin-top:20px;
     padding: 20px;
     background: #CCC;
 }
@@ -74,19 +86,17 @@ th,td{
 #menu {
 	width: 100%;
 	background: #E99;
+	overflow:hidden;
 }
 #menu li{
 	margin-bottom:20px;
 }
 
 .f2t_scrolling {
-	position: fixed;
-	top: 0;
-	_position: static;
+
 }
 .f2t_bottomEnd {
-	right:0;
-	position: absolute;
+
 }
 </style>
 </head>
@@ -94,16 +104,15 @@ th,td{
 <body>
 <div id="wrap">
 	<div id="main">
-		<h1>NFAL Fixed to top  - jQuery Plugin</h1>
+		<h1>NFAL Fixed to Top  - jQuery Plugin</h1>
 		<p>よくあるサイドメニューをスクロールに追従させる奴です。</p>
-		<p>対象のエレメントに、スクロール中は&quot;.f2t_scrolling&quot;、下端までスクロールした時は&quot;.f2t_bottomEnd&quot;という名前のCSSクラスを追加します。</p>
-		<p>このプラグインはあくまでCSSクラスを追加するだけで、スクロールへの追従自体は上記クラスにpostion:fixedなどを記述して実装します。</p>
-        <p>プラグインの設置以前にHTMLとCSSの設計から行う必要があるため、既存のサイトに設置するのは少々面倒かもしれません。</p>
+		<p>ある程度はHTMLとCSSの設計を考える必要があるため、既存のサイトに設置するのは少々面倒かもしれません。</p>
 
 <pre>$('#menu').fixed2top();</pre>
 <p>フッターにかぶらないようにする場合</p>
 <pre>$('#menu').fixed2top({
-	paddingBottom:$('#footer').outerHeight(true)
+	footerTarget:'#footer',
+	paddingBottom:20
 });</pre>
 		
 		<h2>options</h2>
@@ -114,32 +123,45 @@ th,td{
 			<th>説明</th>
 		</tr>
 		<tr>
-			<td>debugmode</td>
+			<td>debugMode</td>
 			<td>false</td>
 			<td>trueでデバッグモード</td>
 		</tr>
 		<tr>
 			<td>offsetTop</td>
 			<td>'auto'</td>
-			<td>対象エレメントを上から何ピクセルずらして表示するかの設定。<br />
+			<td>対象エレメントを上から何ピクセルずらして表示するかの設定<br />
 				基本的にautoのままで使用</td>
 		</tr>
 		<tr>
-			<td>paddingBottom</td>
+			<td>footerTarget</td>
+			<td>null</td>
+			<td>フッターに被せないようにする場合は、ここにフッターを指定<br />
+				例) footerTarget:'#footer'<br /></td>
+		</tr>
+		<tr>
+			<td>marginBottom</td>
 			<td>0</td>
-			<td>フッターに被せないようにする場合は、ここにフッターの高さを数値指定</td>
+			<td>対象エレメントの下に空けるマージン値</td>
+		</tr>
+		<tr>
+			<td>liquidLayout</td>
+			<td>false</td>
+			<td>リキッドレイアウトか否かの設定</td>
 		</tr>
 		<tr>
 			<td>fixedClass</td>
 			<td>'f2t_scrolling'</td>
-			<td>スクロール中に追加されるクラス名</td>
+			<td>スクロール中に追加されるクラス名（基本的には使いません）</td>
 		</tr>
 		<tr>
 			<td>absoluteClass</td>
 			<td>'f2t_bottomEnd'</td>
-			<td>下端までスクロールされた時に追加されるクラス名</td>
+			<td>下端までスクロールされた時に追加されるクラス名（基本的には使いません）</td>
 		</tr>
 		</table>
+		<h2>download</h2>
+		<p><a href="https://github.com/dtsuka/jquery-nfal.fixed2top">https://github.com/dtsuka/jquery-nfal.fixed2top</a></p>
 	</div>
 	<div id="side">
 		<h2>#side</h2>
@@ -159,6 +181,7 @@ th,td{
 	<div id="footer">
 		<h2>#footer</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p>Copyright © Near Future Arts Lab Co.,Ltd. All Rights Reserved.</p>
 	</div>
 </div>
 </body>
