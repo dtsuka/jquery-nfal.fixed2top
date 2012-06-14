@@ -38,8 +38,8 @@
 				absoluteClass	= opts.absoluteClass,
 				offsetTop		= opts.offsetTop,
 				$footer			= $(opts.footerTarget),
-				footerOffsetTop	= $footer.offset().top,
-				footerHeight	= $footer.outerHeight(true),
+				footerOffsetTop	= 0,
+				footerHeight	= 0,
 				marginBtm		= opts.marginBottom,
 				liquid			= opts.liquidLayout,
 				defaBottom		= $this.css('bottom'),
@@ -64,6 +64,8 @@
 					$window.bind('resize', footerHeightGet);
 				}
 				$window.bind('resize', pareWidthGet);
+			}else if(opts.footerTarget !== null ){
+				footerHeightGet();
 			}
 
 
